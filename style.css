@@ -1,0 +1,306 @@
+:root {
+    --primary: #cddc39;
+    --accent: #ff5722;
+	--link-color: #6a80aa;
+    --link-hover: #8fa4d1;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('./fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('./fonts/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: bold;
+}
+
+html[lang="fa"] {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+html[lang="en"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navigation proper spacing layout */
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    font-weight: 600;
+    font-size: 0.95rem;
+	color: white;
+	text-decoration: none;
+	transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* DropDown styles*/
+.dropdown {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* top: 35px;  This caused UX issue that dropdown content fades too soon */
+	top: 100%;
+	margin-top: 0; /* lines 88 and 89 fixes ux issue in dropdown content */
+    left: 0;
+    min-width: 180px;
+    background: rgba(20,20,20,0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 15px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Improving left-right sections */
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #333;
+    line-height: 1.6;
+	transition:
+        background 0.5s ease,
+        color 0.4s ease;
+}
+
+/* Blurred Background */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    transition: 0.5s ease;
+}
+
+body.light-theme .hero-section {
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+        url('https://s17.uupload.ir/files/sasanace/dornatennis.ir/light_mode_landing_bg.jpg')
+        center/cover no-repeat;
+}
+
+body.dark-theme .hero-section {
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+        url('https://s17.uupload.ir/files/sasanace/dornatennis.ir/dark_mode_landing_bg.jpg')
+        center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+}
+
+/* Sticky Header */
+.main-header {
+    padding: 10px 25px;
+    background: rgba(0,0,0,0.18);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-logo { width: 180px; margin-bottom: 20px; }
+.hero-title { font-family: 'Ubuntu'; font-size: 4.5rem; font-weight: 900; margin-bottom: 10px; }
+.hero-slogan { font-family: 'Ubuntu' ; font-size: 1.8rem; font-style: italic; margin-bottom: 10px; }
+.hero-subtitle { font-family: 'Ubuntu' ; font-size: 1.4rem; margin-bottom: 40px; }
+
+/* Big Bold Countdown */
+.countdown {
+    font-size: 2.8rem;
+    font-weight: bold;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin: 30px auto;
+    display: inline-block;
+    border: 2px solid rgba(205, 220, 57, 0.6);
+}
+
+/* Form */
+.waitlist-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.waitlist-form input {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+}
+
+.waitlist-form input::placeholder {
+    color: #b8c4d6;
+    opacity: 1;
+    font-size: 0.95rem;
+}
+
+.waitlist-form button {
+    padding: 16px 32px;
+    background: var(--primary);
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.waitlist-form button:hover {
+    transform: scale(1.05);
+    background: #fff;
+}
+
+/* Footer */
+
+.footer-social {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-social img {
+    width:32px;
+    height:32px;
+}
+
+.header-social {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.header-social img {
+    width:28px;
+    height:28px;
+}
+
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
+    background: #111;
+    color: #ddd;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.footer-bottom p {
+    margin: 6px 0;
+}
+
+.footer-bottom a {
+    font-weight: bold;
+}
+
+.footer-col h4 { color: var(--primary); margin-bottom: 15px; }
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 3rem; }
+    .hero-slogan { font-size: 1.4rem; }
+    .countdown { font-size: 2rem; padding: 15px 25px; }
+	 .mobile-menu-btn{
+        display:block;
+    }
+
+    .nav-menu{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .nav-menu.active{
+        display:flex;
+    }
+}
